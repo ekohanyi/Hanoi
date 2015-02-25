@@ -4,6 +4,7 @@ public class HanoiTester
 {
    public static void main(String[] args)
    {
+      //whatsupp
       Tower t1 = new Tower(true, true, true, true, false);
       Tower t2 = new Tower(false, false, false, false, true);
       Tower t3 = new Tower(false, false, false, false, true);
