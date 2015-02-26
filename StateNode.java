@@ -181,8 +181,9 @@ public class StateNode
          System.out.println(en.nextElement());
       }
    }
-   public ArrayList getChildren()
+   public ArrayList getNeighbors()
    {
+      this.findChildren();
       return children;
    }
    public StateNode getParent()
@@ -218,6 +219,7 @@ public class StateNode
    {
       return all;
    }
+   
 
 
 }

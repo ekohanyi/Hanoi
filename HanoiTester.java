@@ -17,10 +17,9 @@ public class HanoiTester
       smallest[1]=t2;
       smallest[2]=t3;
       StateNode s1 = new StateNode(smallest);
-      Neighbors n1 = new Neighbors(s1);
-      local = n1.getNeighbors();
-      relationships = n1.getRelationships();
-      nodes = n1.getAllNodes();
+      local = s1.getNeighbors();
+      relationships.add(local);
+      nodes = s1.getAll();
       all.addAll(nodes);
       for (int i = 0; i < relationships.size(); i++)
          for (int j = 0; j < local.size(); j++)
