@@ -47,7 +47,12 @@ public class Tower
       else if (temp==4)
          l = false;
       else
-         e=false;
+         e=true;
+         
+      if (l != true && m != true && s!=true && xs !=true)
+         e = true;
+       else
+         e = false;
    }
     
    public void placeDisc(int t)
@@ -62,7 +67,12 @@ public class Tower
       else if (temp==4)
          l = true;
       else 
+         e = false;
+         
+     if (l != true && m != true && s!=true && xs !=true)
          e = true;
+       else
+         e = false;
    }
     
    public boolean getL()

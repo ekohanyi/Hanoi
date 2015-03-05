@@ -2,11 +2,16 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 
-public class HanoiTester{
+public class GraphSearchHanoi
+{
+
    
    public static void main(String[] args)
    {
-      //whatsupp
+      boolean Return;
+      int disks = 0;
+      int v = 0;
+      int heuristic = 0;
       boolean compare;
       Tower t1 = new Tower(true, true, true, true, false);
       Tower t2 = new Tower(false, false, false, false, true);
@@ -38,5 +43,33 @@ public class HanoiTester{
          System.out.println(all.get(k));
          htString.put(all.indexOf(all.get(k)), k);
          }
-   }
+
+
+      Hashtable frontierReference = new Hashtable(91);
+      ArrayList <String> frontier = new ArrayList<String>(91);
+      
+      
+      //do {
+      frontier.addAll(all);
+      for (int i=0; i<frontier.size(); i++){
+         for (int j=10; j<=13; j++){
+            char values = frontier.get(i).charAt(j);
+            v = Character.getNumericValue(values);
+            if (v != 0)
+               disks++;
+              // if (disks == 4)
+                  //loop = false;
+               v=0;
+            }
+            //System.out.println(disks);
+            int index = all.indexOf(frontier.get(i));
+            heuristic = 4 - disks;
+            System.out.println(heuristic);
+            disks=0;
+            heuristic = 0;
+            }
+      
+      //}while (loop);
+      }
+   
 }
