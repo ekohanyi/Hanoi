@@ -2,10 +2,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 
-public class GraphSearchHanoi
+public class ASearchHanoi
 {
 
-   
    public static void main(String[] args)
    {
       boolean Return;
@@ -25,6 +24,12 @@ public class GraphSearchHanoi
       smallest[1]=t2;
       smallest[2]=t3;
       StateNode s1 = new StateNode(smallest);
+
+      Hashtable frontierReference = new Hashtable(91);
+      ArrayList <String> frontier = new ArrayList<String>(91);
+      
+      
+      //do {
       local.addAll(s1.getNeighbors());
       for (int l = 0; l<local.size(); l++){
          if(htString.containsValue(local.get(l))) 
@@ -36,24 +41,10 @@ public class GraphSearchHanoi
       }
       relationships.add(local);
       all.addAll(local);
-      /*for (int i = 0; i < relationships.size(); i++)
-         for (int j = 0; j < local.size(); j++)
-            System.out.println(relationships.get(i).get(j));*/
-      for (int k =0; k<all.size();k++){
-         System.out.println(all.get(k));
-         htString.put(all.indexOf(all.get(k)), k);
-         }
 
-
-      Hashtable frontierReference = new Hashtable(91);
-      ArrayList <String> frontier = new ArrayList<String>(91);
-      
-      
-      //do {
-      frontier.addAll(all);
-      for (int i=0; i<frontier.size(); i++){
+      for (int i=0; i<local.size(); i++){
          for (int j=10; j<=13; j++){
-            char values = frontier.get(i).charAt(j);
+            char values = local.get(i).charAt(j);
             v = Character.getNumericValue(values);
             if (v != 0)
                disks++;
@@ -62,14 +53,14 @@ public class GraphSearchHanoi
                v=0;
             }
             //System.out.println(disks);
-            int index = all.indexOf(frontier.get(i));
+            int index = all.indexOf(local.get(i));
             heuristic = 4 - disks;
             System.out.println(heuristic);
             disks=0;
             heuristic = 0;
+            frontierReference.put(index, heuristic);
             }
       
       //}while (loop);
       }
-   
-}
+ }
